@@ -1,9 +1,6 @@
 #pragma once
 #include <vector>
-#include "Accounts.h"
-#include "Accounts.cpp"
 #include "Cards.h"
-#include "Cards.cpp"
 using namespace std;
 
 class Admin{

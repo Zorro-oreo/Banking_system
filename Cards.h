@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "Accounts.h"
-#include "Accounts.cpp"
 using namespace std;
 
 class Cards{
