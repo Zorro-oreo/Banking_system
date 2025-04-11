@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "Accounts.h"
+#include "Client.h"
 #include "Admin.h"
 using namespace std;
 
@@ -33,6 +34,11 @@ pair<string, long long> Admin::login() {
 	}  
 	cout << "Invalid username or password!\n";  
 	return make_pair("", -1);  
+}
+void Admin::display_clients() {
+	Client client;
+	client.clients();
+	client.displayClients();
 }
 void Admin::display_Cards(Cards &card) {
     card.display_Pre_Paid_Cards();
@@ -67,51 +73,59 @@ void Admin::get_password() {
 }
 
 int main() {
-    Admin admin;
+	Admin admin;
 	admin.admins();
-    Cards card;
-    Accounts account("DefaultType", 0);
-    int choice;
-    long long card_num, account_num;
-    string username;
+	Cards card;
+	Accounts account("DefaultType", 0);
+	int choice;
+	long long card_num, account_num;
+	string username;
 	long long password;
 
 	auto credentials = admin.login();
 	username = credentials.first;
 	password = credentials.second;
 
-	if (username == "Youssof" && password == 1234) {
-		cout << "Welcome Youssof\n";
-	}
-	else if (username == "Hazem" && password == 5678) {
-		cout << "Welcome Hazem\n";
-	}
-	else if (username == "Yaseen" && password == 9101) {
-		cout << "Welcome Yaseen\n";
-	}
-	else if (username == "Maya" && password == 1121) {
-		cout << "Welcome Maya\n";
-	}
-	else {
-		cout << "Invalid username or password!\n";
-		while (true) {
-			cout << "1. Try again\n2. Exit\nEnter choice (1 or 2): ";
-			cin >> choice;
-			if (choice == 1) {
-				break;
-			}
-			else if (choice == 2) {
-				cout << "Exiting...\n";
-				return 0;
-			}
-			else {
-				cout << "Invalid choice! Please try again.\n";
+	while (true) {
+
+		if ((username == "Youssof" && password == 1234) ||
+			(username == "Hazem" && password == 5678) ||
+			(username == "Yaseen" && password == 9101) ||
+			(username == "Maya" && password == 1121)) {
+			cout << "Welcome " << username << "\n";
+			break;
+		}
+		else {
+			while (true) {
+				cout << "1. Try again\n2. Exit\nEnter choice (1 or 2): ";
+				cin >> choice;
+				if (choice == 1) {
+					credentials = admin.login();
+					username = credentials.first;
+					password = credentials.second;
+					if ((username == "Youssof" && password == 1234) ||
+						(username == "Hazem" && password == 5678) ||
+						(username == "Yaseen" && password == 9101) ||
+						(username == "Maya" && password == 1121)) {
+						break;
+					}
+					else {
+						cout << "Invalid username or password!\n";
+					}
+				}
+				else if (choice == 2) {
+					cout << "Exiting...\n";
+					return 0;
+				}
+				else {
+					cout << "Invalid choice! Please try again.\n";
+				}
 			}
 		}
 	}
 	while (true) {
 		
-		cout << "\n1. Display Admins\n2. Display Accounts\n3. Display Cards\n4. Exit\nEnter choice (1, 2, 3 or 4): ";
+		cout << "\n1. Display Admins\n2. Display Clients\n3. Display Accounts\n4. Display Cards\n5. Exit\nEnter choice (1, 2, 3, 4 or 5): ";
 		cin >> choice;
 
 		if (choice == 1) {
@@ -119,14 +133,19 @@ int main() {
 			continue;
 		}
 		else if (choice == 2) {
-			admin.display_Accounts(account);
+			admin.display_clients();
 			continue;
 		}
 		else if (choice == 3) {
-			admin.display_Cards(card);
+			admin.display_Accounts(account);
 			continue;
 		}
 		else if (choice == 4) {
+			admin.display_Cards(card);
+			continue;
+		}
+		else if (choice == 5) {
+			cout << "Exiting...\n";
 			break;
 		}
 		else {

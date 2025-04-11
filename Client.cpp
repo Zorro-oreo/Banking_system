@@ -10,6 +10,11 @@
 
 using namespace std;
 
+void Client::clients() {
+    usernames = { "Youssof", "Hazem", "Yaseen", "Maya" };
+	passwords = { "1234", "5678", "9101", "1121" };
+	ids = { 100000000001, 100000000002, 100000000003, 100000000004 };
+}
 void Client::loadUsers() {
     ifstream file(filename);
     if (!file) {
@@ -66,7 +71,12 @@ void Client::registerAccount(const string& username, const string& password) {
     ids.push_back(generateRandomId());
     cout << "Account registered successfully! Your ID is: " << ids.back() << endl;
 }
-
+void Client::displayClients() {
+	cout << "Registered Clients:\n";
+	for (size_t i = 0; i < usernames.size(); ++i) {
+		cout << i+1<< ": " << usernames[i] << endl;
+	}
+}
 bool Client::login(const string& username, const string& password) {
     for (size_t i = 0; i < usernames.size(); ++i) {
         if (usernames[i] == username && passwords[i] == password) {

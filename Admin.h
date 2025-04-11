@@ -13,6 +13,7 @@ public:
     void admins(); // Admin constructor
 	pair<string, long long> login(); // Admin login
     void display_Admins(); // Displays all admins
+	void display_clients(); // Displays all clients
     void display_Accounts(Accounts &account); // Displays all accounts
     void display_Cards(Cards &card); // Displays all cards
     void display_Accounts_Transactions(Accounts &account); // Displays all account transactions

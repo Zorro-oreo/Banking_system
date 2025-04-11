@@ -1,33 +1,39 @@
-#pragma once
-#include <iostream>
-#include <vector>
+#pragma once  
+#include <iostream>  
+#include <vector>  
 
-using namespace std;
+using namespace std;  
 
-class Client {
-private:
-    vector<string> usernames;
-    vector<string> passwords;
-    vector<long long> ids;
-    const string filename = "users.dat";
+class Client {  
+private: // Change from private to protected to allow access in derived classes or friend classes  
+   vector<string> usernames;
+   vector<string> passwords;  
+   vector<long long> ids;  
+   const string filename = "users.dat";  
 
-    void loadUsers();
+   void loadUsers();  
 
-    void saveUsers();
+   void saveUsers();  
 
-    long long generateRandomId();
+   long long generateRandomId();  
 
-public:
-    Client();
-    ~Client();
+public:  
+   Client();  
 
-    void registerAccount(const string& username, const string& password);
+   ~Client();  
 
-    bool login(const string& username, const string& password);
+   void clients();
 
-    bool deleteAccount(const string& username, const string& password);
+   void displayClients();  
 
-    bool resetPassword(const string& username, long long id);
+   void registerAccount(const string& username, const string& password);  
 
-    bool changePassword(const string& username, const string& oldPassword, const string& newPassword);
+   bool login(const string& username, const string& password);  
+
+   bool deleteAccount(const string& username, const string& password);  
+
+   bool resetPassword(const string& username, long long id);  
+
+   bool changePassword(const string& username, const string& oldPassword, const string& newPassword);  
+
 };
