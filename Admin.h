@@ -11,6 +11,7 @@ private:
 public:
     Admin() = default;
     void admins(); // Admin constructor
+	pair<string, long long> login(); // Admin login
     void display_Admins(); // Displays all admins
     void display_Accounts(Accounts &account); // Displays all accounts
     void display_Cards(Cards &card); // Displays all cards
