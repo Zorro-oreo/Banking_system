@@ -5,25 +5,18 @@
 using namespace std;
 
 void Admin::admins() {
-    username.push_back("Youssef");
-    username.push_back("Hazem");
-    username.push_back("Yaseen");
-    username.push_back("Maya");
-    password.push_back(1234);
-    password.push_back(5678);
-    password.push_back(91011);
-    password.push_back(121314);
+    username = { "Youssof", "Hazem", "Yaseen", "Maya" };
+	password = { 1234, 5678, 9101, 1121 };
+	// Initializing the admin usernames and passwords
+	// This can be replaced with a database or file read in a real application
 }
 void Admin::display_Admins() {
-    cout << "Admins: " << endl;
-    for (size_t i = 0; i < username.size(); i++) {
-        cout << username[i] << endl;
+	cout << "Admins:\n";
+	for (size_t i = 0; i < username.size(); ++i) {
+		cout << username[i] << endl;
     }
     
 }
-/*void Admin::display_Accounts(Accounts &account) {
-    account.display_Accounts();
-}*/
 void Admin::display_Cards(Cards &card) {
     card.display_Pre_Paid_Cards();
     card.display_debit_Cards();
@@ -35,21 +28,9 @@ void Admin::display_Cards(Cards &card) {
 /*void Admin::display_Cards_Transactions(Cards &card) {
     card.display_Cards_Transactions();
 }*/
-/*void Admin::display_Accounts_details(Accounts &account) {
-    account.display_Accounts_details();
-}*/
 void Admin::display_Accounts(Accounts &account) {
     account.displayAccount();
 }
-/*void Admin::display_Accounts_Transactions(Accounts &account) {
-    account.displayTransactions();
-}*/
-/*void Admin::display_Accounts_details(Accounts &account) {
-    account.displayDetails();
-}*/
-/*void Admin::display_Cards_Transactions(Cards &card) {
-    card.displayTransactions();
-}*/
 /*void Admin::display_Cards_details(Cards &card) {
     card.displayDetails();
 }*/
@@ -70,6 +51,7 @@ void Admin::get_password() {
 
 int main() {
     Admin admin;
+	admin.admins();
     Cards card;
     Accounts account("DefaultType", 0);
     int choice;

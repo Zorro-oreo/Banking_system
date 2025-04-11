@@ -1,3 +1,5 @@
-﻿  Team.vcxproj -> C:\Users\hazem\source\repos\Banking_system\x64\Debug\Team.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+﻿  Admin.cpp
+C:\Users\the_f\source\repos\Banking_system\Admin.cpp(58,25): warning C4101: 'account_num': unreferenced local variable
+C:\Users\the_f\source\repos\Banking_system\Admin.cpp(58,38): warning C4101: 'password': unreferenced local variable
+C:\Users\the_f\source\repos\Banking_system\Admin.cpp(58,15): warning C4101: 'card_num': unreferenced local variable
+  Team.vcxproj -> C:\Users\the_f\source\repos\Banking_system\x64\Debug\Team.exe
