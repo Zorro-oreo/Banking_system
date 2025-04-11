@@ -11,12 +11,12 @@ private:
 public:
     Admin() = default;
     void admins(); // Admin constructor
+	pair<string, long long> login(); // Admin login
     void display_Admins(); // Displays all admins
     void display_Accounts(Accounts &account); // Displays all accounts
     void display_Cards(Cards &card); // Displays all cards
     void display_Accounts_Transactions(Accounts &account); // Displays all account transactions
     void display_Cards_Transactions(Cards &card); // Displays all card transactions
-    void display_Accounts_details(Accounts &account); // Displays all account details
     void get_username(); // Gets the username of the admin
     void get_password(); // Gets the password of the admin
 };
