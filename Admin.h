@@ -5,14 +5,14 @@ using namespace std;
 
 class Admin{
 private:
-    vector<long long> password;
+    vector<string> password;
     vector<string> username;
     // Using list for dynamic size and easy insertion/deletion
 public:
     Admin() = default;
     void admins(); // Admin constructor
-	pair<string, long long> login(); // Admin login
-	pair<string, long long> add_Admin(); // Adds a new admin
+	pair<string, string> login(); // Admin login
+	pair<string, string> add_Admin(); // Adds a new admin
     void display_Admins(); // Displays all admins
 	void display_clients(); // Displays all clients
     void display_Accounts(Accounts &account); // Displays all accounts
