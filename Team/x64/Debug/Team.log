@@ -1,6 +1,4 @@
 ﻿  Admin.cpp
-C:\Users\the_f\source\repos\Banking_system\Admin.cpp(81,22): warning C4101: 'account_num': unreferenced local variable
-C:\Users\the_f\source\repos\Banking_system\Admin.cpp(81,12): warning C4101: 'card_num': unreferenced local variable
-  Client.cpp
-  Generating Code...
+C:\Users\the_f\source\repos\Banking_system\Admin.cpp(92,22): warning C4101: 'account_num': unreferenced local variable
+C:\Users\the_f\source\repos\Banking_system\Admin.cpp(92,12): warning C4101: 'card_num': unreferenced local variable
   Team.vcxproj -> C:\Users\the_f\source\repos\Banking_system\x64\Debug\Team.exe

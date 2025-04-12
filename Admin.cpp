@@ -35,6 +35,17 @@ pair<string, long long> Admin::login() {
 	cout << "Invalid username or password!\n";  
 	return make_pair("", -1);  
 }
+pair<string, long long> Admin::add_Admin() {
+	cout << "Enter new admin username: ";
+	string new_username;
+	cin >> new_username;
+	cout << "Enter new admin password: ";
+	long long new_password;
+	cin >> new_password;
+	username.push_back(new_username);
+	password.push_back(new_password);
+	return make_pair(new_username, new_password);
+}
 void Admin::display_clients() {
 	Client client;
 	client.clients();
@@ -125,7 +136,7 @@ int main() {
 	}
 	while (true) {
 		
-		cout << "\n1. Display Admins\n2. Display Clients\n3. Display Accounts\n4. Display Cards\n5. Exit\nEnter choice (1, 2, 3, 4 or 5): ";
+		cout << "\n1. Display Admins\n2. Add new Admin\n3. Display Clients\n4. Display Accounts\n5. Display Cards\n6. Exit\nEnter choice (1, 2, 3, 4, 5 or 6): ";
 		cin >> choice;
 
 		if (choice == 1) {
@@ -133,18 +144,23 @@ int main() {
 			continue;
 		}
 		else if (choice == 2) {
-			admin.display_clients();
+			auto new_admin = admin.add_Admin();
+			cout << "New admin added: " << new_admin.first << ", with password: " << new_admin.second << "\n";
 			continue;
 		}
 		else if (choice == 3) {
-			admin.display_Accounts(account);
+			admin.display_clients();
 			continue;
 		}
 		else if (choice == 4) {
-			admin.display_Cards(card);
+			admin.display_Accounts(account);
 			continue;
 		}
 		else if (choice == 5) {
+			admin.display_Cards(card);
+			continue;
+		}
+		else if (choice == 6) {
 			cout << "Exiting...\n";
 			break;
 		}
