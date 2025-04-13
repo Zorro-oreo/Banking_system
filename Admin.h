@@ -12,6 +12,7 @@ public:
     Admin() = default;
     void admins(); // Admin constructor
 	pair<string, string> login(); // Admin login
+	void logout(); // Admin logout
 	pair<string, string> add_Admin(); // Adds a new admin
     void display_Admins(); // Displays all admins
 	void display_clients(); // Displays all clients

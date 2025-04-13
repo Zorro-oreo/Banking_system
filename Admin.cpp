@@ -35,6 +35,10 @@ pair<string, string> Admin::login() {
 	cout << "Invalid username or password!\n";  
 	return make_pair("", "");
 }
+void Admin::logout() {
+	cout << "Logging out...\n";
+	
+}
 pair<string, string> Admin::add_Admin() {
 	cout << "Enter new admin username: ";
 	string new_username;
@@ -136,7 +140,7 @@ int main() {
 	}
 	while (true) {
 		
-		cout << "\n1. Display Admins\n2. Add new Admin\n3. Display Clients\n4. Display Accounts\n5. Display Cards\n6. Exit\nEnter choice (1, 2, 3, 4, 5 or 6): ";
+		cout << "\n1. Display Admins\n2. Add new Admin\n3. Display Clients\n4. Display Accounts\n5. Display Cards\n6. Log out\n7. Exit\nEnter choice (1, 2, 3, 4, 5, 6 or 7): ";
 		cin >> choice;
 
 		if (choice == 1) {
@@ -161,6 +165,10 @@ int main() {
 			continue;
 		}
 		else if (choice == 6) {
+			admin.logout();
+			break;
+		}
+		else if (choice == 7) {
 			cout << "Exiting...\n";
 			break;
 		}
