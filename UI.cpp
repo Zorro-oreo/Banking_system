@@ -1,0 +1,73 @@
+#include <iostream>
+#include "UI.h"
+#include "User.h"
+
+void UI::main_menu() {
+	int c;
+	cout << "Welcome!\n";
+	cout << "1. Login\n";
+	cout << "2. Sign Up\n";
+	cout << "3. Exit\n";
+	cout << "Enter your choice: ";
+	cin >> c;
+	switch (c) {
+	case 1:
+		login();
+		break;
+	case 2:
+		sign_up();
+		break;
+	case 3:
+		cout << "Exiting...\n";
+		exit(0);
+	}
+}
+void UI::login() {
+	string username, password;
+	cout << "Enter username: "<< endl;
+	cin >> username;
+	cout << "Enter password: " << endl;
+	cin >> password;
+	for (int i = 0; i < users.size(); i++) {
+		if (users[i].get_username() == username && users[i].get_password() == password) {
+			current_user = username;
+			cout << "Login successful!\n";
+			break;
+		}
+		else {
+			cout << "Invalid username or password!\n";
+		}
+	}
+}
+void UI::sign_up() { //Main menu. Anyone can do it...
+	string username, password;
+	cout << "Enter username: " << endl;
+	cin >> username;
+	cout << "Enter password: " << endl;
+	cin >> password;
+	User new_user(username, password, "Client", 123456789);
+	users.push_back(new_user);
+	cout << "Sign up successful.\n";
+}
+
+void UI::add_admin() { //Only accessed when the current_user is an admin...
+
+	string username, password;
+	cout << "Enter username: " << endl;
+	cin >> username;
+	cout << "Enter password: " << endl;
+	cin >> password;
+	User new_user(username, password, "Admin", 123456788);
+	users.push_back(new_user);
+	cout << "New admin added.\n";
+
+}
+
+//cout user details
+void UI::display_user(User usr) {
+
+	cout << "Username: " << usr.get_username() << endl;
+	cout << "User type: " << usr.get_type() << endl;
+	cout << "User ID: " << usr.get_id() << endl;
+
+}

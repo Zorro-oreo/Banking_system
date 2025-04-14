@@ -123,12 +123,17 @@
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Cards.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accounts.h" />
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
