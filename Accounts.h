@@ -12,7 +12,7 @@ private:
 
 	long balance;
 
-	long long ID;
+	string ID;
 
 	vector<long long> debitCards;
 	vector<long long> creditCards;
@@ -20,7 +20,7 @@ private:
 	
 
 public:
-	Accounts(string t, long long i);
+	Accounts(string t, string i);
 
 	void displayNumCards();
 
@@ -36,7 +36,7 @@ public:
 
 	long getBalance();
 
-	long long getID();
+	string getID();
 
 	void displayAccount();
 

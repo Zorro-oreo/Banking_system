@@ -7,7 +7,7 @@ using namespace std;
 class UI {
 protected:
 	string current_user;
-	vector <User> users;
+	static vector <User> users;
 public:
 	void main_menu();
 	void login();
@@ -15,6 +15,7 @@ public:
 	void admin_menu();
 	void add_admin();
 	void client_menu();
-	void set_user(string U);
+	void set_CurrentUser(string CU);
 	void display_user(User usr);
+	vector <User> get_users();
 };

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "UI.h"
 #include "User.h"
+#include "Admin.h"
+#include "Accounts.h"
 
 void UI::main_menu() {
 	int c;
@@ -45,7 +47,7 @@ void UI::sign_up() { //Main menu. Anyone can do it...
 	cin >> username;
 	cout << "Enter password: " << endl;
 	cin >> password;
-	User new_user(username, password, "Client", 123456789);
+	User new_user(username, password, "Client", "123456789");
 	users.push_back(new_user);
 	cout << "Sign up successful.\n";
 }
@@ -57,17 +59,45 @@ void UI::add_admin() { //Only accessed when the current_user is an admin...
 	cin >> username;
 	cout << "Enter password: " << endl;
 	cin >> password;
-	User new_user(username, password, "Admin", 123456788);
+	User new_user(username, password, "Admin", "123456788");
 	users.push_back(new_user);
 	cout << "New admin added.\n";
 
 }
+void UI::admin_menu() {
+	Admin admin;
+	
+	while (true) {
+		int choice;
+		cout << "\n1. Display Admins\n2. Add New Admin\n3. Display Clients\n4.Remove User \n5. Log out\n6. Exit\nEnter choice (1, 2, 3, 4, 5, 6): ";
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			admin.displayUsers(&users);
+			break;
+		case 2:
+			add_admin();
+			break;
+		case 3:
+			admin.displayUsers(&users);
+			break;
+		case 4:
+			string id;
+			cout << "Enter user ID to remove: ";
+			cin >> id;
+			admin.removeUser(&id);
+			break;
+		}
 
-//cout user details
+	}
+}
 void UI::display_user(User usr) {
 
 	cout << "Username: " << usr.get_username() << endl;
 	cout << "User type: " << usr.get_type() << endl;
 	cout << "User ID: " << usr.get_id() << endl;
 
+}
+vector <User> UI::get_users() {
+	return users;
 }

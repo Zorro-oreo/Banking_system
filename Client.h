@@ -4,19 +4,7 @@
 
 using namespace std;  
 
-class Client {  
-private: // Change from private to protected to allow access in derived classes or friend classes  
-   vector<string> usernames;
-   vector<string> passwords;  
-   vector<long long> ids;  
-   const string filename = "users.dat";  
-
-   void loadUsers();  
-
-   void saveUsers();  
-
-   long long generateRandomId();  
-
+class Client {
 public:  
    Client();  
 

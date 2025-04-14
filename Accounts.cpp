@@ -2,7 +2,7 @@
 #include <vector>
 #include "Accounts.h"
 
-Accounts::Accounts(string t, long long i): type(t), ID(i), balance(0){}
+Accounts::Accounts(string t, string i): type(t), ID(i), balance(0){}
 
 void Accounts::displayNumCards() {
 
@@ -70,7 +70,7 @@ long Accounts::getBalance() {
 
 }
 
-long long Accounts::getID() {
+string Accounts::getID() {
 
 	return ID;
 
