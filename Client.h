@@ -1,27 +1,26 @@
 #pragma once  
 #include <iostream>  
 #include <vector>  
+#include "User.h"
+#include "UI.h"
+#include "Accounts.h"
 
-using namespace std;  
+using namespace std;
 
-class Client {
-public:  
-   Client();  
+class Client: public User {
+private:
+	vector<Accounts> accounts;
+public:
+	Client();
 
-   ~Client();  
+	void deleteAccount(string ID);
 
-   void clients();
+	bool resetPassword(string& username, string id);
 
-   void displayClients();  
+	bool changePassword(string& username, string& oldPassword, string& newPassword);
 
-   void registerAccount(const string& username, const string& password);  
+	void displayCards(string& id);
 
-   bool login(const string& username, const string& password);  
-
-   bool deleteAccount(const string& username, const string& password);  
-
-   bool resetPassword(const string& username, long long id);  
-
-   bool changePassword(const string& username, const string& oldPassword, const string& newPassword);  
+	void displayAccounts(string& id);
 
 };

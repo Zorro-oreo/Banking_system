@@ -7,6 +7,5 @@ int main() {
 	ui.add_admin();
 	ui.main_menu();
 
-
 	return 0;
 }

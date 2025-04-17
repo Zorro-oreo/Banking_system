@@ -6,7 +6,7 @@ using namespace std;
 
 class UI {
 protected:
-	string current_user;
+	static User current_user;
 	static vector <User> users;
 public:
 	void main_menu();

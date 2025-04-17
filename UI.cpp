@@ -4,6 +4,9 @@
 #include "Admin.h"
 #include "Accounts.h"
 
+User current_user;
+vector<User> UI::users;
+
 void UI::main_menu() {
 	int c;
 	cout << "Welcome!\n";
@@ -31,14 +34,21 @@ void UI::login() {
 	cout << "Enter password: " << endl;
 	cin >> password;
 	for (int i = 0; i < users.size(); i++) {
+
+		bool logged_in = false;
+
 		if (users[i].get_username() == username && users[i].get_password() == password) {
-			current_user = username;
+			current_user = users.at(i);
 			cout << "Login successful!\n";
+			logged_in = true;
 			break;
 		}
-		else {
-			cout << "Invalid username or password!\n";
+
+		if (!logged_in) {
+			cout << "Invalid username or password. Please try again.\n";
+			main_menu();
 		}
+
 	}
 }
 void UI::sign_up() { //Main menu. Anyone can do it...
@@ -65,7 +75,7 @@ void UI::add_admin() { //Only accessed when the current_user is an admin...
 
 }
 void UI::admin_menu() {
-	Admin admin;
+	Admin admin(current_user.get_username(), current_user.get_password(), current_user.get_type(), current_user.get_id());
 	
 	while (true) {
 		int choice;
