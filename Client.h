@@ -9,9 +9,12 @@ using namespace std;
 
 class Client: public User {
 private:
+
 	vector<Accounts> accounts;
+
 public:
-	Client();
+
+	Client(string name, string pass, string typ, string i);;
 
 	void deleteAccount(string ID);
 

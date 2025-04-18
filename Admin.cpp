@@ -2,7 +2,7 @@
 
 UI ui;
 
-Admin::Admin(string name, string pass, string typ, string i) : User(name, pass, "Admin", "123456789") {} //Constructor for admin
+Admin::Admin(string name, string pass, string typ, string i) : User(name, pass, typ, i) {} //Constructor for admin
 
 void Admin::displayUsers(vector<User>* users) { //Using UI ui to access the users
 	cout << "Users:" << endl;

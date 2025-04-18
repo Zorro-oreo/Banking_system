@@ -1,5 +1,7 @@
 #include "Client.h"
 
+Client::Client(string name, string pass, string typ, string i) : User(name, pass, typ, i) {}
+
 void Client::deleteAccount(string ID) {
 
 	bool found = false;
