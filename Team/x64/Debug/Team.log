@@ -1,7 +1,4 @@
 ﻿  Admin.cpp
-  UI.cpp
-C:\Users\the_f\source\repos\Banking_system\UI.cpp(7,6): error C2512: 'User': no appropriate default constructor available
-      C:\Users\the_f\source\repos\Banking_system\User.h(6,7):
-      see declaration of 'User'
-  
-  Generating Code...
+  Team.vcxproj -> C:\Users\hazem\source\repos\Banking_system\x64\Debug\Team.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

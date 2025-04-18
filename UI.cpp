@@ -4,7 +4,7 @@
 #include "Admin.h"
 #include "Accounts.h"
 
-User current_user;
+User UI::current_user;
 vector<User> UI::users;
 
 void UI::main_menu() {

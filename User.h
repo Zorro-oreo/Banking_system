@@ -10,6 +10,7 @@ protected:
 	string type;
 	string id;
 public:
+	User();
 	User(string name, string pass, string typ, string i);
 	string get_username();
 	string get_password();

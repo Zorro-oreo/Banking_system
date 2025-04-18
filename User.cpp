@@ -1,5 +1,7 @@
 #include "User.h"
 
+User::User() : username(""), password(""), type(""), id("") {}
+
 User::User(string name, string pass, string typ, string i): username(name), password(pass), type(typ), id(i){}
 
 string User::get_username() {
