@@ -6,8 +6,8 @@ Accounts::Accounts(string t, string i): type(t), ID(i), balance(0){}
 
 void Accounts::displayNumCards() {
 
-	cout << "Debit cards: " << debitCards.size() << endl;
-	cout << "Credit cards: " << creditCards.size() << endl;
+	cout << "\nDebit cards: " << debitCards.size() << endl;
+	cout << "\nCredit cards: " << creditCards.size() << endl;
 
 }
 
@@ -78,9 +78,9 @@ string Accounts::getID() {
 
 void Accounts::displayAccount() {
 
-	cout << "Account number: " << ID << endl;
-	cout << "Account type: " << type << endl;
-	cout << "Current balance: " << balance << endl;
+	cout << "\nAccount number: " << ID << endl;
+	cout << "\nAccount type: " << type << endl;
+	cout << "\nCurrent balance: " << balance << endl;
 
 }
 

@@ -1,6 +1,7 @@
 #pragma once  
 #include <iostream>  
-#include <vector>  
+#include <vector>
+#include <ctime>
 #include "User.h"
 #include "UI.h"
 #include "Accounts.h"
@@ -8,7 +9,7 @@
 using namespace std;
 
 class Client: public User {
-private:
+protected:
 
 	vector<Accounts> accounts;
 
@@ -18,12 +19,9 @@ public:
 
 	void deleteAccount(string ID);
 
-	bool resetPassword(string& username, string id);
+	void addaccount(string type);
 
-	bool changePassword(string& username, string& oldPassword, string& newPassword);
+	void displayAccounts();
 
-	void displayCards(string& id);
-
-	void displayAccounts(string& id);
 
 };
