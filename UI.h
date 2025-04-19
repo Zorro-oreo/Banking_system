@@ -1,6 +1,7 @@
 #pragma once
 #include "User.h"
 #include <vector>
+#include "UI.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ public:
 	void admin_menu();
 	void add_admin();
 	void client_menu();
-	void set_CurrentUser(string CU);
+	void set_CurrentUser(string CU); // implement ?
 	void display_user(User usr);
 	vector <User> get_users();
 };

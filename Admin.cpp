@@ -14,10 +14,13 @@ void Admin::displayUsers(vector<User>* users) { //Using UI ui to access the user
 	}
 }
 void Admin::removeUser(const string* id) { //Using UI ui to access the users
-	for (int i = 0; i < ui.get_users().size(); i++) {
-		if (ui.get_users()[i].get_id() == *id) {
-			ui.get_users().erase(ui.get_users().begin() + i);
+	vector<User>& users = UI::users;
+
+	for (int i = 0; i < users.size(); i++) {
+		if (users[i].get_id() == *id) {
+			users.erase(users.begin() + i);
 			cout << "\nUser removed successfully!" << endl;
+			return;
 		}
 	}
 	cout << "\nUser not found!" << endl;
