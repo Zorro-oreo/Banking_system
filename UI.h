@@ -8,7 +8,7 @@ using namespace std;
 class UI {
 protected:
 	static User current_user;
-	static vector <User> users;
+	static vector <User> users; //Store the users
 public:
 	void main_menu();
 	void login();

@@ -6,12 +6,10 @@
 
 using namespace std;
 
-class Admin: public User {
+class Admin: public User { //Admin user child
 public:
 
 	Admin(string name, string pass, string typ, string i);
-	void displayUsers(vector<User>* users);
-	void removeUser(const string* id);
-	void displayUserDetails(string* id);
+	void removeUser(string id);
 
 };

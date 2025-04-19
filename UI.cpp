@@ -99,7 +99,7 @@ void UI::add_admin() { //Only accessed when the current_user is an admin...
 	string username, password, id;
 	cout << "\nEnter username: " << endl;
 	cin >> username;
-	for (int i = 0; i < users.size(); i++) {
+	for (int i = 0; i < users.size(); i++) { //Checks if the name is taken
 		if (users[i].get_username() == username) {
 			cout << "\nAdmin already exists. Please try again.\n";
 			sign_up();
@@ -123,13 +123,14 @@ void UI::add_admin() { //Only accessed when the current_user is an admin...
 			break;
 		}
 	}
+
 	User new_user(username, password, "Admin", id);
-	users.push_back(new_user);
-	cout << "\nNew admin added.\n";
+	users.push_back(new_user); //Add new admin to the users vector
+	cout << "\nNew admin added.\n"; //Add "with ID:" later
 
 }
 void UI::admin_menu() {
-	Admin admin(current_user.get_username(), current_user.get_password(), current_user.get_type(), current_user.get_id());
+	Admin admin(current_user.get_username(), current_user.get_password(), current_user.get_type(), current_user.get_id()); //Create instance for admin
 	
 	while (true) {
 		int choice;
@@ -161,7 +162,7 @@ void UI::admin_menu() {
 			string id;
 			cout << "\nEnter user ID to remove: ";
 			cin >> id;
-			admin.removeUser(&id);
+			admin.removeUser(id); //Goes to the remove function in the admin class
 		}
 		else if (choice == 5) {
 			main_menu();
