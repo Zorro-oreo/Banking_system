@@ -11,7 +11,7 @@ public:
 
 	Admin(string name, string pass, string typ, string i);
 	void displayUsers(vector<User>* users);
-	void removeUser(string* id);
+	void removeUser(const string* id);
 	void displayUserDetails(string* id);
 
 };

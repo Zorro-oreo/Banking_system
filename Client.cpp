@@ -15,18 +15,17 @@ void Client::deleteAccount(string ID) {
 	}
 
 	if (found) {
-		cout << "Account deleted successfully!" << endl;
+		cout << "\nAccount deleted successfully!" << endl;
 	}
 	else {
-		cout << "Account not found!" << endl;
-		cout << "Account not found!" << endl;
+		cout << "\nAccount not found!" << endl;
 	}
 }
 
 void Client::addaccount(string type) {
    while (true) {  
        if (type != "Savings" && type != "Current") {  
-           cout << "Invalid account type!" << endl;  
+           cout << "\nInvalid account type!" << endl;  
            return;  
        }  
        string ID = to_string(rand() % 1000000000000);  
@@ -43,14 +42,14 @@ void Client::addaccount(string type) {
        if (isUnique) {  
            Accounts newAccount(type, ID);  
            accounts.push_back(newAccount);  
-           cout << "Account added successfully with ID: " << ID << endl;  
+           cout << "\nAccount added successfully with ID: " << ID << endl;  
            return;  
        }  
    }  
 }
 void Client::displayAccounts() {
 	if (accounts.empty()) {
-		cout << "No accounts." << endl;
+		cout << "\nNo accounts." << endl;
 		return;
 	}
 	for (int i = 0; i < accounts.size(); i++) {
