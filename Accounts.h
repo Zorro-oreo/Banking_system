@@ -14,8 +14,8 @@ private:
 
 	string ID;
 
-	vector<long long> debitCards;
-	vector<long long> creditCards;
+	vector<string> debitCards;
+	vector<string> creditCards;
 
 	
 
@@ -24,11 +24,11 @@ public:
 
 	void displayNumCards();
 
-	void addDebitCard(long long num);
-	void addCreditCard(long long num);
+	void addDebitCard(string num);
+	void addCreditCard(string num);
 
-	void stopDebitCard(long long num);
-	void stopCreditCard(long long num);
+	void stopDebitCard(string num);
+	void stopCreditCard(string num);
 
 	void addToBalance(long amount);
 

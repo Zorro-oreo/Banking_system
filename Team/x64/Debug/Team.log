@@ -1,4 +1,6 @@
-﻿  Admin.cpp
+﻿  Accounts.cpp
+  Cards.cpp
+  Client.cpp
   UI.cpp
   Generating Code...
   Team.vcxproj -> C:\Users\hazem\source\repos\Banking_system\x64\Debug\Team.exe

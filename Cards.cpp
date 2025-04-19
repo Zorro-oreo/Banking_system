@@ -2,19 +2,19 @@
 #include <vector>
 #include "Cards.h"
 
-void Cards::add_PrePaid_Card(long long card) {
+void Cards::add_PrePaid_Card(string card) {
     cout <<"Add a new PrePaid Card: " << endl;
     cin >> card;
     prepaid_cards.push_back(card);
     // Using push_back to add a card to the vector
 }
-void Cards::add_Debit_Card(long long card, Accounts &account) {
+void Cards::add_Debit_Card(string card, Accounts &account) {
     account.addDebitCard(card);
 }
-void Cards::add_Credit_Card(long long card) {
+void Cards::add_Credit_Card(string card) {
     credit_cards.push_back(card);
 }
-void Cards::stop_Pre_Paid_Card(long long card_RP) {
+void Cards::stop_Pre_Paid_Card(string card_RP) {
     cout << "Stop PrePaid Card: " << endl;
     cin >> card_RP;
     // Using cin to get the card number from the user
@@ -27,7 +27,7 @@ void Cards::stop_Pre_Paid_Card(long long card_RP) {
     // Using erase to remove the card from the vector
     // The loop iterates through the vector to find the card and remove it
 }
-void Cards::stop_Debit_Card(long long card_RD) {
+void Cards::stop_Debit_Card(string card_RD) {
     for(int i = 0; i < debit_cards.size(); i++) {
         if(debit_cards[i] == card_RD) {
             debit_cards.erase(debit_cards.begin() + i);
@@ -36,7 +36,7 @@ void Cards::stop_Debit_Card(long long card_RD) {
     }
 
 }
-void Cards::stop_Credit_Card(long long card_RC) {
+void Cards::stop_Credit_Card(string card_RC) {
     for(int i = 0; i < credit_cards.size(); i++) {
         if(credit_cards[i] == card_RC) {
             credit_cards.erase(credit_cards.begin() + i);
@@ -46,7 +46,7 @@ void Cards::stop_Credit_Card(long long card_RC) {
 }
 void Cards::display_Pre_Paid_Cards() {
     cout << "Prepaid Cards: ";
-    for (long long card : prepaid_cards) {
+    for (string card : prepaid_cards) {
         cout << card << " ";
     }
     cout << endl;
@@ -55,14 +55,14 @@ void Cards::display_Pre_Paid_Cards() {
 }
 void Cards::display_debit_Cards() {
     cout << "Debit Cards: ";
-    for (long long card : debit_cards) {
+    for (string card : debit_cards) {
         cout << card << " ";
     }
     cout << endl;
 }
 void Cards::display_credit_Cards() {
     cout << "Credit Cards: ";
-    for (long long card : credit_cards) {
+    for (string card : credit_cards) {
         cout << card << " ";
     }
     cout << endl;

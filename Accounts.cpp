@@ -11,13 +11,13 @@ void Accounts::displayNumCards() {
 
 }
 
-void Accounts::addDebitCard(long long num) {
+void Accounts::addDebitCard(string num) {
 
 	debitCards.push_back(num);
 
 }
 
-void Accounts::stopDebitCard(long long num) {
+void Accounts::stopDebitCard(string num) {
 
 	for (int i = 0; i < debitCards.size(); i++) {
 
@@ -31,13 +31,13 @@ void Accounts::stopDebitCard(long long num) {
 
 }
 
-void Accounts::addCreditCard(long long num) {
+void Accounts::addCreditCard(string num) {
 
 	creditCards.push_back(num);
 
 }
 
-void Accounts::stopCreditCard(long long num) {
+void Accounts::stopCreditCard(string num) {
 
 	for (int i = 0; i < creditCards.size(); i++) {
 
