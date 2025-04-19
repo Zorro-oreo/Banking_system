@@ -1,5 +1,8 @@
 ﻿  Admin.cpp
   Client.cpp
+  Main.cpp
+  UI.cpp
+  User.cpp
   Generating Code...
   Team.vcxproj -> C:\Users\hazem\source\repos\Banking_system\x64\Debug\Team.exe
   'pwsh.exe' is not recognized as an internal or external command,
