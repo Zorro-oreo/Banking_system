@@ -2,6 +2,7 @@
 #include <vector>
 #include "Accounts.h"
 
+Accounts::Accounts() : type(""), balance(0), ID("") {}
 Accounts::Accounts(string t, string i): type(t), ID(i), balance(0){}
 
 void Accounts::displayNumCards() {
@@ -82,6 +83,14 @@ void Accounts::displayAccount() {
 	cout << "\nAccount type: " << type << endl;
 	cout << "\nCurrent balance: " << balance << endl;
 
+}
+
+vector<string>& Accounts::getCreditCard() {
+	return creditCards;
+}
+
+vector<string>& Accounts::getDebitCard() {
+	return debitCards;
 }
 
 /*int main() { //Testing

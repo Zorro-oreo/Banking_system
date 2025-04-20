@@ -1,9 +1,10 @@
 #pragma once
 #include "User.h"
 #include <vector>
-#include "UI.h"
 
 using namespace std;
+
+class Client; // Forward declaration of Client class
 
 class UI {
 protected:
@@ -16,6 +17,7 @@ public:
 	void admin_menu();
 	void add_admin();
 	void client_menu();
+	void Account_menu(Client& client);
 	void display_user(User usr);
 	vector <User>& get_users();
 };

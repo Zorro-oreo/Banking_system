@@ -4,6 +4,7 @@
 #include "Admin.h"
 #include "Client.h"
 #include "Accounts.h"
+#include "Cards.h"
 
 User UI::current_user;
 
@@ -193,7 +194,7 @@ void UI::client_menu() {
 
 	while (true) {
 		int choice;
-		cout << "\n1. Add Account\n2. Delete Account\n3. Display Accounts\n4. Log out\n5. Exit\nEnter your choice: ";
+		cout << "\n1. Add Account\n2. Delete Account\n3. Display Accounts\n4. Get into Account\n5. Log out\n6. Exit\nEnter your choice: ";
 		cin >> choice;
 		if (choice == 1) {
 			string type;
@@ -212,13 +213,75 @@ void UI::client_menu() {
 			client.displayAccounts();
 		}
 		else if (choice == 4) {
-			main_menu();
+			string ID;
+			cout << "\nEnter account ID to get into: ";
+			cin >> ID;
+			bool found = false;
+			for (int i = 0; i < client.getAccounts().size(); i++) {
+				if (client.getAccounts()[i].getID() == ID) {
+					found = true;
+					client.getCurrentAccount() = client.getAccounts()[i];
+					Account_menu(client);
+				}
+			}
+			if (!found) {
+				cout << "\nAccount not found.\n";
+				client_menu();
+			}
 		}
 		else if (choice == 5) {
+			main_menu();
+		}
+		else if (choice == 6) {
 			cout << "Exiting...\n";
 			exit(0);
 		}
 		else {
+			cout << "\nInvalid choice. Please try again.\n";
+		}
+	}
+}
+void UI::Account_menu(Client& client) {
+	while (true) {
+		int choice;
+		cout << "\n1. Add Debit Card\n2. Add Credit Card\n3. Remove Debit Card\n4. Remove Credit Card\n5. Display Debit Cards\n6. Display Credit Cards\n7. Back\nEnter Choice: ";
+		cin >> choice;
+
+		Cards cards;
+		string card;
+
+		switch (choice) {
+		case 1:
+			cout << "\nEnter Debit Card number: ";
+			cin >> card;
+			cards.add_Debit_Card(card, client.getCurrentAccount());
+			break;
+		case 2:
+			cout << "\nEnter Credit Card number: ";
+			cin >> card;
+			cards.add_Credit_Card(card, client.getCurrentAccount());
+			break;
+		case 3:
+			cout << "\nEnter Debit Card number to remove: ";
+			cin >> card;
+			cards.stop_Debit_Card(card, client.getCurrentAccount());
+			break;
+		case 4:
+			cout << "\nEnter Credit Card number to remove: ";
+			cin >> card;
+			cards.stop_Credit_Card(card, client.getCurrentAccount());
+			break;
+		case 5:
+			cards.display_debit_Cards(client.getCurrentAccount());
+			cout << endl;
+			break;
+		case 6:
+			cards.display_credit_Cards(client.getCurrentAccount());
+			cout << endl;
+			break;
+		case 7:
+			return; // Return to the previous menu
+		default:
 			cout << "\nInvalid choice. Please try again.\n";
 		}
 	}

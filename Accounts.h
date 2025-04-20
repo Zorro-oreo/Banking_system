@@ -17,9 +17,9 @@ private:
 	vector<string> debitCards;
 	vector<string> creditCards;
 
-	
-
 public:
+
+	Accounts();
 	Accounts(string t, string i);
 
 	void displayNumCards();
@@ -39,5 +39,8 @@ public:
 	string getID();
 
 	void displayAccount();
+
+	vector<string>& getCreditCard();
+	vector<string>& getDebitCard();
 
 };

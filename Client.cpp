@@ -57,3 +57,11 @@ void Client::displayAccounts() {
 	
 	}
 }
+
+Accounts& Client::getCurrentAccount() {
+	return currentAccount;
+}
+
+vector<Accounts>& Client::getAccounts() {
+	return accounts;
+}
