@@ -1,14 +1,20 @@
 #include <iostream>
 #include <vector>
 #include "Accounts.h"
+#include "Notifications.h"
 
 Accounts::Accounts() : type(""), balance(0), ID("") {}
 Accounts::Accounts(string t, string i): type(t), ID(i), balance(0){}
 
+Notifications Anotif;
+
 void Accounts::displayNumCards() {
 
-	cout << "\nDebit cards: " << debitCards.size() << endl;
-	cout << "\nCredit cards: " << creditCards.size() << endl;
+	Anotif.message("\nDebit cards: ");
+	Anotif.message(debitCards.size(), true);
+
+	Anotif.message("\Credit cards: ");
+	Anotif.message(creditCards.size(), true);
 
 }
 
@@ -79,9 +85,14 @@ string Accounts::getID() {
 
 void Accounts::displayAccount() {
 
-	cout << "\nAccount number: " << ID << endl;
-	cout << "\nAccount type: " << type << endl;
-	cout << "\nCurrent balance: " << balance << endl;
+	Anotif.message("\nAccount number: ");
+	Anotif.message(ID, true);
+
+	Anotif.message("\nAccount type: ");
+	Anotif.message(type, true);
+
+	Anotif.message("\nCurrent balance: ");
+	Anotif.message(balance, true);
 
 }
 
