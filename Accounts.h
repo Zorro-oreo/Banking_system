@@ -10,6 +10,8 @@ private:
 
 	string type;
 
+	string country;
+
 	long balance;
 
 	string ID;
@@ -20,7 +22,7 @@ private:
 public:
 
 	Accounts();
-	Accounts(string t, string i);
+	Accounts(string t, string i, string c);
 
 	void displayNumCards();
 
@@ -35,6 +37,8 @@ public:
 	void subFromBalance(long amount);
 
 	long getBalance();
+
+	string getCountry();
 
 	string getID();
 

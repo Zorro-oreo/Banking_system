@@ -10,18 +10,20 @@ using namespace std;
 
 class Client: public User {
 protected:
-	Accounts currentAccount;
+	Accounts* currentAccount = new Accounts;
 	vector<Accounts> accounts;
 
 public:
 
 	Client(string name, string pass, string typ, string i);
 
+	void setCurrentAccount(Accounts& acnt);
+
 	Accounts& getCurrentAccount();
 
 	void deleteAccount(string ID);
 
-	void addaccount(string type);
+	void addaccount(string type, string country);
 
 	void displayAccounts();
 

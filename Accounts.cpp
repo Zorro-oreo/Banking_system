@@ -3,8 +3,8 @@
 #include "Accounts.h"
 #include "Notifications.h"
 
-Accounts::Accounts() : type(""), balance(0), ID("") {}
-Accounts::Accounts(string t, string i): type(t), ID(i), balance(0){}
+Accounts::Accounts() : type(""), balance(0), ID(""), country("") {}
+Accounts::Accounts(string t, string i, string c): type(t), ID(i), balance(100), country(c){} //Start with balance 100 for debugging
 
 Notifications Anotif;
 
@@ -83,6 +83,12 @@ string Accounts::getID() {
 
 }
 
+string Accounts::getCountry() {
+
+	return country;
+
+}
+
 void Accounts::displayAccount() {
 
 	Anotif.message("\nAccount number: ");
@@ -90,6 +96,9 @@ void Accounts::displayAccount() {
 
 	Anotif.message("\nAccount type: ");
 	Anotif.message(type, true);
+
+	Anotif.message("\nAccount country: ");
+	Anotif.message(country, true);
 
 	Anotif.message("\nCurrent balance: ");
 	Anotif.message(balance, true);

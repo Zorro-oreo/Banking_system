@@ -22,7 +22,7 @@ void Client::deleteAccount(string ID) {
 	}
 }
 
-void Client::addaccount(string type) {
+void Client::addaccount(string type, string country) {
    while (true) {  
        if (type != "Savings" && type != "Current") {  
            cout << "\nInvalid account type!" << endl;  
@@ -40,7 +40,7 @@ void Client::addaccount(string type) {
            }  
        }  
        if (isUnique) {  
-           Accounts newAccount(type, ID);  
+           Accounts newAccount(type, ID, country);  
            accounts.push_back(newAccount);  
            cout << "\nAccount added successfully with ID: " << ID << endl;  
            return;  
@@ -58,8 +58,12 @@ void Client::displayAccounts() {
 	}
 }
 
+void Client::setCurrentAccount(Accounts& acnt) {  
+   currentAccount = &acnt;  
+}
+
 Accounts& Client::getCurrentAccount() {
-	return currentAccount;
+	return *currentAccount;
 }
 
 vector<Accounts>& Client::getAccounts() {

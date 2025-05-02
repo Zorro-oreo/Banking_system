@@ -5,6 +5,7 @@
 #include "Client.h"
 #include "Accounts.h"
 #include "Cards.h"
+#include "Transactions.h"
 
 User UI::current_user;
 
@@ -198,9 +199,12 @@ void UI::client_menu() {
 		cin >> choice;
 		if (choice == 1) {
 			string type;
+			string country;
 			cout << "\nEnter account type (Savings/Current): ";
 			cin >> type;
-			client.addaccount(type);
+			cout << "\nEnter account Country: ";
+			cin >> country;
+			client.addaccount(type, country);
 		}
 		else if (choice == 2) {
 			string ID;
@@ -220,7 +224,7 @@ void UI::client_menu() {
 			for (int i = 0; i < client.getAccounts().size(); i++) {
 				if (client.getAccounts()[i].getID() == ID) {
 					found = true;
-					client.getCurrentAccount() = client.getAccounts()[i];
+					client.setCurrentAccount(client.getAccounts()[i]); //fix this
 					Account_menu(client);
 				}
 			}
@@ -242,15 +246,22 @@ void UI::client_menu() {
 	}
 }
 void UI::Account_menu(Client& client) {
+
+	Transactions transact(client.getCurrentAccount());
+
 	while (true) {
 		int choice;
-		cout << "\n1. Add Debit Card\n2. Add Credit Card\n3. Remove Debit Card\n4. Remove Credit Card\n5. Display Debit Cards\n6. Display Credit Cards\n7. Back\nEnter Choice: ";
+		cout << "\n1. Add Debit Card\n2. Add Credit Card\n3. Remove Debit Card\n4. Remove Credit Card\n5. Display Debit Cards\n6. Display Credit Cards\n7. Send funds\n8. Back\nEnter Choice: "; // MOVE ADDING CARDS TO APPLY FOR CARDS
 		cin >> choice;
 
 		Cards cards;
 		string card;
+		bool Rfound = false; //For transactions
 
-		switch (choice) {
+		string recieverID;
+		long amount;
+
+		switch (choice) { //Do NOT declare variables inside switch
 		case 1:
 			cout << "\nEnter Debit Card number: ";
 			cin >> card;
@@ -279,7 +290,31 @@ void UI::Account_menu(Client& client) {
 			cards.display_credit_Cards(client.getCurrentAccount());
 			cout << endl;
 			break;
+
 		case 7:
+
+			cout << "Enter beneficiary account ID: ";
+			cin >> recieverID;
+
+			cout << "Enter amount to send: ";
+			cin >> amount;
+
+			for (int i = 0; i < client.getAccounts().size(); i++) {
+				if (client.getAccounts()[i].getID() == recieverID) {
+					Rfound = true;
+					
+					transact.Send(amount, client.getAccounts()[i]);
+
+				}
+			}
+			if (!Rfound) {
+				cout << "\nAccount not found.\n";
+				client_menu();
+			}
+
+			break;
+
+		case 8:
 			return; // Return to the previous menu
 		default:
 			cout << "\nInvalid choice. Please try again.\n";
