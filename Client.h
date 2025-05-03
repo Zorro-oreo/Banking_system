@@ -10,7 +10,7 @@ using namespace std;
 
 class Client: public User {
 protected:
-	Accounts* currentAccount = new Accounts;
+	Accounts* currentAccount = new Accounts; //A pointer to recieve the address of the current account from the accounts vector to avoid receiving a copy of it
 	vector<Accounts> accounts;
 
 public:
