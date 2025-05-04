@@ -19,6 +19,8 @@ private:
 	vector<string> debitCards;
 	vector<string> creditCards;
 
+	long debt;
+
 public:
 
 	Accounts();
@@ -46,5 +48,25 @@ public:
 
 	vector<string>& getCreditCard();
 	vector<string>& getDebitCard();
+
+	long getDebt() {
+
+		return debt;
+
+	}
+
+	void giveLoan(int val) {
+
+		balance += val;
+		debt = val;
+
+	}
+
+	void payDebt(int val) {
+
+		debt -= val;
+		balance -= val;
+
+	}
 
 };

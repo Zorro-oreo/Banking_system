@@ -29,5 +29,6 @@ public:
 
 	vector<Accounts>& getAccounts();
 
+	~Client();
 
 };

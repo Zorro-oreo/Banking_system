@@ -69,3 +69,9 @@ Accounts& Client::getCurrentAccount() {
 vector<Accounts>& Client::getAccounts() {
 	return accounts;
 }
+
+Client::~Client() {
+
+	delete currentAccount; //Delete dynamically allocated memory
+
+}
