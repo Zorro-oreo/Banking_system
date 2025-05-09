@@ -251,7 +251,7 @@ void UI::Account_menu(Client& client) {
 
 	while (true) {
 		int choice;
-		cout << "\n1. Add Debit Card\n2. Add Credit Card\n3. Remove Debit Card\n4. Remove Credit Card\n5. Display Debit Cards\n6. Display Credit Cards\n7. Send funds\n8. Back\nEnter Choice: "; // MOVE ADDING CARDS TO APPLY FOR CARDS
+		cout << "\n1. Add Debit Card\n2. Add Credit Card\n3. Remove Debit Card\n4. Remove Credit Card\n5. Display Debit Cards\n6. Display Credit Cards\n7. Send funds\n8. Apply for loan\n9. View loan details\n10. Pay loan installment\n11. Show log\n12. Back\nEnter Choice: "; // MOVE ADDING CARDS TO APPLY FOR CARDS
 		cin >> choice;
 
 		Cards cards;
@@ -315,6 +315,45 @@ void UI::Account_menu(Client& client) {
 			break;
 
 		case 8:
+
+			cout << "Enter amount for loan (you need to have more than half that amount currently in your balance): ";
+			int amnt;
+			cin >> amnt;
+
+			client.getCurrentAccount().APLoan(amnt); //Appy for a loan
+			break;
+
+		case 9:
+
+			if (client.getCurrentAccount().getLoan() != 0) { //Inquire about loan
+
+				cout << "Loan taken: " << client.getCurrentAccount().getLoan() << endl;
+				cout << "Debt to pay: " << client.getCurrentAccount().getDebt() << endl;
+
+			}
+			else {
+
+				cout << "No loans taken.";
+
+			}
+			break;
+
+		case 10:
+
+			client.getCurrentAccount().Loan();
+			break;
+
+		case 11:
+
+			for (int i = 0; i < transact.getLog().size(); i++) { //Print out the log
+
+				cout << transact.getLog()[i];
+
+			}
+
+			break;
+
+		case 12:
 			return; // Return to the previous menu
 		default:
 			cout << "\nInvalid choice. Please try again.\n";

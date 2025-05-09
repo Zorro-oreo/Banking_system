@@ -105,6 +105,7 @@ void Accounts::displayAccount() {
 
 }
 
+//_______________________________________Loan handling here________________________________________________
 void Accounts::Loan() { 
 
 	if ((debt >= 0.05 * loan) && (balance >= 0.05 * loan)) {
@@ -112,11 +113,17 @@ void Accounts::Loan() {
 		debt -= (0.05 * loan);
 		balance -= (0.05 * loan);//Deduce 5% from the loan taken
 
+		Anotif.message("Paid ");
+		Anotif.message(0.05 * loan, true);
+
 	}
 	else if (((debt < 0.05 * loan) && (debt != 0)) && (balance >= debt)) { //If the account has less than the 5% remaining in their balance, only take what's left to prevent negative balance
 
 		debt -= debt;
 		balance -= debt;
+
+		Anotif.message("Paid ");
+		Anotif.message(debt);
 
 	}
 	else if ((debt != 0) && (balance < 0.05 * loan)) {
@@ -135,6 +142,8 @@ void Accounts::APLoan(int amount) {
 		loan = amount;
 		debt = amount;
 
+		Anotif.message("Loan granted.\n");
+
 	}
 	else {
 
@@ -143,6 +152,19 @@ void Accounts::APLoan(int amount) {
 	}
 
 }
+
+long Accounts::getDebt() {
+
+	return debt;
+
+}
+
+long Accounts::getLoan() {
+
+	return loan;
+
+}
+//______________________________________________________________________________________________________
 
 vector<string>& Accounts::getCreditCard() {
 	return creditCards;

@@ -19,8 +19,8 @@ private:
 	vector<string> debitCards;
 	vector<string> creditCards;
 
-	long debt;
-	long loan; // To remember the loan taken originally
+	long debt = 0;
+	long loan = 0; // To remember the loan taken originally
 
 public:
 
@@ -50,18 +50,9 @@ public:
 	vector<string>& getCreditCard();
 	vector<string>& getDebitCard();
 
-	long getDebt() {
+	long getDebt();
 
-		return debt;
-
-	}
-
-	void giveLoan(int val) {
-
-		balance += val;
-		debt = val;
-		loan = val;
-	}
+	long getLoan();
 
 	void Loan(); //Will handle the loans by checking the debt of the account saved and deducing the required amount. It will be called periodically 
 
