@@ -1,4 +1,9 @@
-﻿  ApplyForLoans.cpp
+﻿  Accounts.cpp
+C:\Users\hazem\source\repos\Banking_system\Accounts.cpp(14,32): warning C4267: 'argument': conversion from 'size_t' to 'long', possible loss of data
+C:\Users\hazem\source\repos\Banking_system\Accounts.cpp(16,17): warning C4129: 'C': unrecognized character escape sequence
+C:\Users\hazem\source\repos\Banking_system\Accounts.cpp(17,33): warning C4267: 'argument': conversion from 'size_t' to 'long', possible loss of data
+C:\Users\hazem\source\repos\Banking_system\Accounts.cpp(112,17): warning C4244: '-=': conversion from 'double' to 'long', possible loss of data
+C:\Users\hazem\source\repos\Banking_system\Accounts.cpp(113,20): warning C4244: '-=': conversion from 'double' to 'long', possible loss of data
   Team.vcxproj -> C:\Users\hazem\source\repos\Banking_system\x64\Debug\Team.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

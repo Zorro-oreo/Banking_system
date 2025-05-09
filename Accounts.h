@@ -20,6 +20,7 @@ private:
 	vector<string> creditCards;
 
 	long debt;
+	long loan; // To remember the loan taken originally
 
 public:
 
@@ -59,14 +60,11 @@ public:
 
 		balance += val;
 		debt = val;
-
+		loan = val;
 	}
 
-	void payDebt(int val) {
+	void Loan(); //Will handle the loans by checking the debt of the account saved and deducing the required amount. It will be called periodically 
 
-		debt -= val;
-		balance -= val;
-
-	}
+	void APLoan(int amount); //Apply for a loan
 
 };

@@ -105,6 +105,45 @@ void Accounts::displayAccount() {
 
 }
 
+void Accounts::Loan() { 
+
+	if ((debt >= 0.05 * loan) && (balance >= 0.05 * loan)) {
+
+		debt -= (0.05 * loan);
+		balance -= (0.05 * loan);//Deduce 5% from the loan taken
+
+	}
+	else if (((debt < 0.05 * loan) && (debt != 0)) && (balance >= debt)) { //If the account has less than the 5% remaining in their balance, only take what's left to prevent negative balance
+
+		debt -= debt;
+		balance -= debt;
+
+	}
+	else if ((debt != 0) && (balance < 0.05 * loan)) {
+
+		Anotif.message("Can not pay debt due to insufficient balance.\n");
+
+	}
+
+}
+
+void Accounts::APLoan(int amount) {
+
+	if ((balance > (0.5 * amount) && (debt == 0))) { //User can only apply for a loan if they have more than half its amount and if the user has already paid his debts
+		
+		balance += amount;
+		loan = amount;
+		debt = amount;
+
+	}
+	else {
+
+		Anotif.message("Insufficient balance or debt is not paid.\n");
+
+	}
+
+}
+
 vector<string>& Accounts::getCreditCard() {
 	return creditCards;
 }
