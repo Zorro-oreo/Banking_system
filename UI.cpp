@@ -251,7 +251,7 @@ void UI::Account_menu(Client& client) {
 
 	while (true) {
 		int choice;
-		cout << "\n1. Add Debit Card\n2. Add Credit Card\n3. Remove Debit Card\n4. Remove Credit Card\n5. Display Debit Cards\n6. Display Credit Cards\n7. Send funds\n8. Apply for loan\n9. View loan details\n10. Pay loan installment\n11. Show log\n12. Back\nEnter Choice: "; // MOVE ADDING CARDS TO APPLY FOR CARDS
+		cout << "\n1. Add Debit Card\n2. Add Credit Card\n3. Remove Debit Card\n4. Remove Credit Card\n5. Display Debit Cards\n6. Display Credit Cards\n7. Send funds\n8. Apply for loan\n9. View loan details\n10. Pay loan installment\n11. Show log\n12. Withdraw\n13. Deposit\n14. Back\nEnter Choice: ";
 		cin >> choice;
 
 		Cards cards;
@@ -354,6 +354,32 @@ void UI::Account_menu(Client& client) {
 			break;
 
 		case 12:
+
+			cout << "Enter amount to withdraw:";
+
+			int withdraw;
+			cin >> withdraw;
+
+
+			if (withdraw > client.getCurrentAccount().getBalance()) {
+				cout << "low funds." << endl;
+			}
+			client.getCurrentAccount().subFromBalance(withdraw);
+			cout << "Withdraw done. balance: " << client.getCurrentAccount().getBalance() << endl;
+
+			break;
+
+		case 13:
+
+			cout << "Enter deposit amount: $";
+			int dep;
+			cin >> dep;
+			client.getCurrentAccount().addToBalance(dep);
+			cout << "Deposit successful!\n";
+
+			break;
+
+		case 14:
 			return; // Return to the previous menu
 		default:
 			cout << "\nInvalid choice. Please try again.\n";
